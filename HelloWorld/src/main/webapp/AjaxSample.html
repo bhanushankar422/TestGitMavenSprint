@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+function testAjax(){
+	$("par1").append("<p>test2</p>");
+}
+$(document).ready(function(){
+	var sampleJSONurl1 = "http://jsonplaceholder.typicode.com/posts/1";
+	var sampleJSONurl2 = "http://jsonplaceholder.typicode.com/posts/2";
+	$("button").click(function(){
+		alert("button");
+		$("par1").append("<p>test2</p>");
+		$.when($.getJSON(sampleJSONurl1)).done(function(v1){
+			alert(v1.id);
+			var id = "<p>" + v1.id + "</p>";
+			$("par1").append(id);
+			$("par1").append("<p>test2</p>");
+		});
+	});
+	
+});
+</script>
+</head>
+<body>
+
+<div id="div1">
+<h1>AJAX test</h1>
+
+<p id="par1">Content from Call 1 : </p>
+<p id="par2">Content from Call 2 : </p>
+
+<button id="button" onclick="testAjax()">Get External Content</button>
+
+</div>
+
+</body>
+</html>

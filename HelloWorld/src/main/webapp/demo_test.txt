@@ -1,0 +1,7 @@
+Event Delegation is mechanism via which we can attach a event listener of a specific element to its parent element.
+In this way, when a event is trigger by the child element, that can be bubbled up to the parent level for which the event listener is added.
+So, using Event Delegation we can write a generic code which can executed across multiple child elements.
+
+When coming to a single page application, the content of the page is dynamically updated depending on various requests.
+If a event listener is written directly on the child element, then for newly/dynamically added elements there will be no listeners.
+But by using Event Delegation, as the listener is attached to the parent element, even for the dynamically added the same listener will be reflected.

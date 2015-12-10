@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+function testAjax() {
+    
+    
+    var sampleJSONurl1 = "http://jsonplaceholder.typicode.com/posts/1";
+	var sampleJSONurl2 = "http://jsonplaceholder.typicode.com/posts/2";
+	$.when($.getJSON(sampleJSONurl1),$.getJSON(sampleJSONurl2)).done(function(v1,v2){
+		var id1 = "<p>" + "ID from URL1 :: " + v1[0].id + "</p>";
+		var id2 = "<p>" + "ID from URL2 :: " + v2[0].id + "</p>";
+		$("#header").after(id1 + id2);
+	});
+}
+</script>
+</head>
+<body>
+
+<h2 id="header">Ajax JSON response.</h2>
+
+<p>
+	URL1=http://jsonplaceholder.typicode.com/posts/1
+</p>
+<p>
+	URL2=http://jsonplaceholder.typicode.com/posts/2
+</p>
+<button onclick="testAjax()">Test Ajax</button>
+
+</body>
+</html>
